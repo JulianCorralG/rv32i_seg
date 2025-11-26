@@ -1,17 +1,20 @@
-# Procesador Monociclo RISC-V (RV32I)
+# Procesador Segmentado RISC-V (RV32I Pipeline)
 
-Este repositorio contiene la implementación de un procesador monociclo basado en la arquitectura RISC-V (RV32I), desarrollado para el curso de Arquitectura de Computadores.
+Este repositorio contiene la implementación de un procesador segmentado (pipelined) de 5 etapas basado en la arquitectura RISC-V (RV32I), desarrollado para el curso de Arquitectura de Computadores.
 
 ## 1. Objetivos
-- Implementar un procesador funcional capaz de ejecutar un subconjunto de instrucciones RV32I.
+- Implementar un procesador segmentado funcional capaz de ejecutar un subconjunto de instrucciones RV32I.
+- Implementar técnicas de manejo de riesgos (Hazard Unit y Forwarding Unit) para asegurar la ejecución correcta.
 - Verificar cada módulo y el sistema completo mediante testbenches en SystemVerilog.
 - Preparar el diseño para su síntesis e implementación en FPGA.
 
 ## 2. Estructura del Proyecto
 ```
-rv32i_mono/
+rv32i_seg/
 ├── src/            # Código fuente RTL (SystemVerilog)
-│   ├── cpu_top.sv  # Top-level del procesador
+│   ├── cpu_top.sv  # Top-level del procesador segmentado
+│   ├── Pipeline_Regs.sv # Registros de segmentación (IF/ID, ID/EX, EX/MEM, MEM/WB)
+│   ├── HazardUnit.sv    # Unidad de detección de riesgos y adelantamiento
 │   ├── fpga_top.sv # Wrapper para implementación en FPGA
 │   └── ...         # Otros módulos (ALU, ControlUnit, etc.)
 ├── tb/             # Testbenches
