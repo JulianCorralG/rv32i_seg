@@ -1,0 +1,162 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2009.vpi";
+S_0x5c897cd45490 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_0x5c897cd45620 .scope module, "imm_gen_tb" "imm_gen_tb" 3 1;
+ .timescale 0 0;
+v0x5c897cd97dd0_0 .net "ImmExt", 31 0, v0x5c897cd80920_0;  1 drivers
+v0x5c897cd97e90_0 .var "ImmSrc", 2 0;
+v0x5c897cd97f30_0 .var "Instr", 31 7;
+S_0x5c897cd806d0 .scope module, "dut" "ImmGen" 3 6, 4 1 0, S_0x5c897cd45620;
+ .timescale 0 0;
+    .port_info 0 /INPUT 25 "Instr";
+    .port_info 1 /INPUT 3 "ImmSrc";
+    .port_info 2 /OUTPUT 32 "ImmExt";
+v0x5c897cd80920_0 .var "ImmExt", 31 0;
+v0x5c897cd97bb0_0 .net "ImmSrc", 2 0, v0x5c897cd97e90_0;  1 drivers
+v0x5c897cd97c90_0 .net "Instr", 31 7, v0x5c897cd97f30_0;  1 drivers
+E_0x5c897cd81390/0 .event anyedge, v0x5c897cd97bb0_0, v0x5c897cd97c90_0, v0x5c897cd97c90_0, v0x5c897cd97c90_0;
+E_0x5c897cd81390/1 .event anyedge, v0x5c897cd97c90_0, v0x5c897cd97c90_0, v0x5c897cd97c90_0, v0x5c897cd97c90_0;
+E_0x5c897cd81390/2 .event anyedge, v0x5c897cd97c90_0, v0x5c897cd97c90_0, v0x5c897cd97c90_0, v0x5c897cd97c90_0;
+E_0x5c897cd81390 .event/or E_0x5c897cd81390/0, E_0x5c897cd81390/1, E_0x5c897cd81390/2;
+    .scope S_0x5c897cd806d0;
+T_0 ;
+Ewait_0 .event/or E_0x5c897cd81390, E_0x0;
+    %wait Ewait_0;
+    %load/vec4 v0x5c897cd97bb0_0;
+    %dup/vec4;
+    %pushi/vec4 0, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.0, 6;
+    %dup/vec4;
+    %pushi/vec4 1, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.1, 6;
+    %dup/vec4;
+    %pushi/vec4 2, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.2, 6;
+    %dup/vec4;
+    %pushi/vec4 3, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.3, 6;
+    %dup/vec4;
+    %pushi/vec4 4, 0, 3;
+    %cmp/u;
+    %jmp/1 T_0.4, 6;
+    %pushi/vec4 0, 0, 32;
+    %store/vec4 v0x5c897cd80920_0, 0, 32;
+    %jmp T_0.6;
+T_0.0 ;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 24, 6;
+    %replicate 20;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 12, 13, 5;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0x5c897cd80920_0, 0, 32;
+    %jmp T_0.6;
+T_0.1 ;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 24, 6;
+    %replicate 20;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 7, 18, 6;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 5, 0, 2;
+    %concat/vec4; draw_concat_vec4
+    %store/vec4 v0x5c897cd80920_0, 0, 32;
+    %jmp T_0.6;
+T_0.2 ;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 24, 6;
+    %replicate 19;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 24, 6;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 0, 2;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 6, 18, 6;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 4, 1, 2;
+    %concat/vec4; draw_concat_vec4
+    %concati/vec4 0, 0, 1;
+    %store/vec4 v0x5c897cd80920_0, 0, 32;
+    %jmp T_0.6;
+T_0.3 ;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 24, 6;
+    %replicate 12;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 24, 6;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 8, 5, 4;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 1, 13, 5;
+    %concat/vec4; draw_concat_vec4
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 10, 14, 5;
+    %concat/vec4; draw_concat_vec4
+    %concati/vec4 0, 0, 1;
+    %pad/u 32;
+    %store/vec4 v0x5c897cd80920_0, 0, 32;
+    %jmp T_0.6;
+T_0.4 ;
+    %load/vec4 v0x5c897cd97c90_0;
+    %parti/s 20, 5, 4;
+    %concati/vec4 0, 0, 12;
+    %store/vec4 v0x5c897cd80920_0, 0, 32;
+    %jmp T_0.6;
+T_0.6 ;
+    %pop/vec4 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x5c897cd45620;
+T_1 ;
+    %vpi_call/w 3 13 "$dumpfile", "sim/imm_gen_tb.vcd" {0 0 0};
+    %vpi_call/w 3 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5c897cd45620 {0 0 0};
+    %pushi/vec4 33546241, 0, 25;
+    %store/vec4 v0x5c897cd97f30_0, 0, 25;
+    %pushi/vec4 0, 0, 3;
+    %store/vec4 v0x5c897cd97e90_0, 0, 3;
+    %delay 10, 0;
+    %load/vec4 v0x5c897cd97dd0_0;
+    %cmpi/ne 4294967295, 0, 32;
+    %jmp/0xz  T_1.0, 6;
+    %vpi_call/w 3 20 "$error", "I-Type failed" {0 0 0};
+T_1.0 ;
+    %pushi/vec4 4, 0, 25;
+    %store/vec4 v0x5c897cd97f30_0, 0, 25;
+    %pushi/vec4 1, 0, 3;
+    %store/vec4 v0x5c897cd97e90_0, 0, 3;
+    %delay 10, 0;
+    %load/vec4 v0x5c897cd97dd0_0;
+    %cmpi/ne 4, 0, 32;
+    %jmp/0xz  T_1.2, 6;
+    %vpi_call/w 3 29 "$error", "S-Type failed" {0 0 0};
+T_1.2 ;
+    %vpi_call/w 3 31 "$display", "ImmGen Testbench Completed" {0 0 0};
+    %vpi_call/w 3 32 "$finish" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/imm_gen_tb.sv";
+    "src/ImmGen.sv";

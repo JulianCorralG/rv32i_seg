@@ -1,0 +1,47 @@
+$date
+	Tue Nov 25 22:21:03 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module branch_unit_tb $end
+$var wire 1 ! NextPCSrc $end
+$var reg 32 " A [31:0] $end
+$var reg 32 # B [31:0] $end
+$var reg 5 $ BrOp [4:0] $end
+$scope module dut $end
+$var wire 5 % BrOp [4:0] $end
+$var wire 1 ! NextPCSrc $end
+$var wire 32 & RURs1 [31:0] $end
+$var wire 32 ' RURs2 [31:0] $end
+$var reg 1 ( BranchTaken $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1(
+b1010 '
+b1010 &
+b1000 %
+b1000 $
+b1010 #
+b1010 "
+1!
+$end
+#10
+0!
+0(
+b10100 #
+b10100 '
+#20
+1!
+b10000 $
+b10000 %
+#30
